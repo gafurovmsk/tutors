@@ -17,6 +17,11 @@
 		040B60F91EAFB3BF00131673 /* Masonry.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 040B60F51EAFB22100131673 /* Masonry.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		040B60FD1EAFBC0B00131673 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 040B60FC1EAFBC0B00131673 /* Contact.m */; };
 		040B61021EAFC08B00131673 /* ContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 040B61011EAFC08B00131673 /* ContactCell.m */; };
+		042A0DDB1EB25E3900FA701D /* CColorDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 042A0DDA1EB25E3900FA701D /* CColorDictionary.m */; };
+		042A0DDD1EB2654E00FA701D /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042A0DDC1EB2654E00FA701D /* AFNetworking.framework */; };
+		042A0DDE1EB2658B00FA701D /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042A0DDC1EB2654E00FA701D /* AFNetworking.framework */; };
+		042A0DDF1EB2658B00FA701D /* AFNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 042A0DDC1EB2654E00FA701D /* AFNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		042A0DE21EB265B000FA701D /* ApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 042A0DE11EB265B000FA701D /* ApiManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,6 +32,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				040B60F91EAFB3BF00131673 /* Masonry.framework in Embed Frameworks */,
+				042A0DDF1EB2658B00FA701D /* AFNetworking.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,6 +54,11 @@
 		040B60FC1EAFBC0B00131673 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
 		040B61001EAFC08B00131673 /* ContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactCell.h; sourceTree = "<group>"; };
 		040B61011EAFC08B00131673 /* ContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactCell.m; sourceTree = "<group>"; };
+		042A0DD91EB25E3900FA701D /* CColorDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CColorDictionary.h; sourceTree = "<group>"; };
+		042A0DDA1EB25E3900FA701D /* CColorDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CColorDictionary.m; sourceTree = "<group>"; };
+		042A0DDC1EB2654E00FA701D /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = Carthage/Build/iOS/AFNetworking.framework; sourceTree = "<group>"; };
+		042A0DE01EB265B000FA701D /* ApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiManager.h; sourceTree = "<group>"; };
+		042A0DE11EB265B000FA701D /* ApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +67,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				040B60F81EAFB3BF00131673 /* Masonry.framework in Frameworks */,
+				042A0DDE1EB2658B00FA701D /* AFNetworking.framework in Frameworks */,
 				040B60F61EAFB22100131673 /* Masonry.framework in Frameworks */,
+				042A0DDD1EB2654E00FA701D /* AFNetworking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,8 +98,12 @@
 			children = (
 				040B60E01EAFAFDB00131673 /* AppDelegate.h */,
 				040B60E11EAFAFDB00131673 /* AppDelegate.m */,
-				040B60FE1EAFBC1200131673 /* Model */,
+				042A0DE31EB265DA00FA701D /* Netwroking */,
 				040B60FF1EAFC01C00131673 /* Controllers */,
+				040B60FE1EAFBC1200131673 /* Model */,
+				040B61031EAFC33500131673 /* Cell */,
+				18C7029B1EB225D50087C049 /* Views */,
+				040B60E91EAFAFDC00131673 /* Assets.xcassets */,
 				040B60DD1EAFAFDB00131673 /* Supporting Files */,
 			);
 			path = TutorialEleven;
@@ -95,7 +112,6 @@
 		040B60DD1EAFAFDB00131673 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				040B60E91EAFAFDC00131673 /* Assets.xcassets */,
 				040B60EB1EAFAFDC00131673 /* LaunchScreen.storyboard */,
 				040B60EE1EAFAFDC00131673 /* Info.plist */,
 				040B60DE1EAFAFDB00131673 /* main.m */,
@@ -106,6 +122,7 @@
 		040B60F41EAFB22100131673 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				042A0DDC1EB2654E00FA701D /* AFNetworking.framework */,
 				040B60F51EAFB22100131673 /* Masonry.framework */,
 			);
 			name = Frameworks;
@@ -116,7 +133,6 @@
 			children = (
 				040B60FB1EAFBB6500131673 /* Contact.h */,
 				040B60FC1EAFBC0B00131673 /* Contact.m */,
-				040B61031EAFC33500131673 /* Cell */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -133,10 +149,28 @@
 		040B61031EAFC33500131673 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				042A0DD91EB25E3900FA701D /* CColorDictionary.h */,
+				042A0DDA1EB25E3900FA701D /* CColorDictionary.m */,
 				040B61001EAFC08B00131673 /* ContactCell.h */,
 				040B61011EAFC08B00131673 /* ContactCell.m */,
 			);
 			name = Cell;
+			sourceTree = "<group>";
+		};
+		042A0DE31EB265DA00FA701D /* Netwroking */ = {
+			isa = PBXGroup;
+			children = (
+				042A0DE01EB265B000FA701D /* ApiManager.h */,
+				042A0DE11EB265B000FA701D /* ApiManager.m */,
+			);
+			name = Netwroking;
+			sourceTree = "<group>";
+		};
+		18C7029B1EB225D50087C049 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +248,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Masonry.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/AFNetworking.framework",
 			);
 			outputPaths = (
 			);
@@ -228,7 +263,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				042A0DE21EB265B000FA701D /* ApiManager.m in Sources */,
 				040B60FD1EAFBC0B00131673 /* Contact.m in Sources */,
+				042A0DDB1EB25E3900FA701D /* CColorDictionary.m in Sources */,
 				040B61021EAFC08B00131673 /* ContactCell.m in Sources */,
 				040B60E51EAFAFDB00131673 /* ViewController.m in Sources */,
 				040B60E21EAFAFDB00131673 /* AppDelegate.m in Sources */,

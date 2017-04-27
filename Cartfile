@@ -1,1 +1,2 @@
 github "SnapKit/Masonry"
+github "AFNetworking/AFNetworking" ~> 3.0

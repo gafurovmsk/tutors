@@ -10,6 +10,8 @@
 #import "Contact.h"
 #import "QuartzCore/CALayer.h"
 #import "ContactCell.h"
+#import "CColorDictionary.h"
+#import "ApiManager.h"
 @import Masonry;
 
 //const NSString *cellId = @"cellId";
@@ -17,7 +19,8 @@
 @interface ViewController () <UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) UITableView *contactTable;
-@property (nonatomic,strong) NSArray<Contact *>* list;
+@property (nonatomic,strong) NSArray<Contact*> *list;
+@property (nonatomic,strong) ApiManager *sharedManager;
 
 @end
 
@@ -26,6 +29,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    
+    self.sharedManager = [ApiManager sharedManager];
+    
+//    [self.sharedManager getAuthorization];
+//
+//    self.list = [self.sharedManager  getContacts];
+    
     UIEdgeInsets edgesInsets =  UIEdgeInsetsMake(0, 8, 8, 8);
     
     self.contactTable = [UITableView new];
@@ -39,28 +48,20 @@
     self.list = @[
                   [[Contact alloc]initWithFirstName:@"Alan" andSecondName:@"Kay"],
                   [[Contact alloc]initWithFirstName:@"Bjarne " andSecondName:@"Stroustrup"],
+                  [[Contact alloc]initWithFirstName:@"Flop " andSecondName:@"Job"],
+                  [[Contact alloc]initWithFirstName:@"Isaak " andSecondName:@"Burber"],
+                  [[Contact alloc]initWithFirstName:@"Claud " andSecondName:@"Mane"],
+                  [[Contact alloc]initWithFirstName:@"Mike " andSecondName:@"Buanorotti"],
+                  [[Contact alloc]initWithFirstName:@"Glower " andSecondName:@"Jobber"],
                   [[Contact alloc]initWithFirstName:@"Erich" andSecondName:@"Gamma"]
                   ];
     
-    
-    
-    
-    
-    
-    
     self.view.backgroundColor = [UIColor magentaColor];
-    
-    
+  
     [self.contactTable registerClass: ContactCell.self forCellReuseIdentifier:@"customID"];
     
     self.contactTable.delegate = self;
     self.contactTable.dataSource = self;
-    
-   
-    
-    
-
-
 
 }
 
@@ -70,42 +71,15 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-  // UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cellId"];
   
     ContactCell *customCell = [tableView dequeueReusableCellWithIdentifier:@"customID"];
-    
-    
-//    cell.textLabel.text = [NSString stringWithFormat:@"%@",self.list[indexPath.row].firstName];
-//    [cell.imageView setTintColor:[UIColor blueColor]];
-//    cell.imageView.backgroundColor = [UIColor yellowColor];
-//    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",self.list[indexPath.row].secondName];
-    
-    customCell.nameLabel.text = [NSString stringWithFormat:@"%@",self.list[indexPath.row].firstName];
-    [customCell.imageView setTintColor:[UIColor blueColor]];
-    customCell.imageView.backgroundColor = [UIColor yellowColor];
-    customCell.secondLabel.text = [NSString stringWithFormat:@"%@",self.list[indexPath.row].secondName];
+  
+    customCell.nameLabel.text = self.list[indexPath.row].firstName;
+    customCell.avatar.backgroundColor = [CColorDictionary generateColorWithString:self.list[indexPath.row].firstSymbols];  
+    customCell.secondLabel.text = self.list[indexPath.row].secondName;
+    customCell.imageSymbolsLabel.text = self.list[indexPath.row].firstSymbols;
 
-    
-    
-    
-    
-//    CALayer *cellImageLayer = cell.imageView.layer;
-//    [cellImageLayer setCornerRadius:9];
-//    [cellImageLayer setMasksToBounds:YES];
-    
-    
     return customCell;
 }
-
-
--(UIColor*)colorGenerator: (NSString*) name{
-    
-    
-    
-    return [UIColor yellowColor];
-}
-
-
 
 @end

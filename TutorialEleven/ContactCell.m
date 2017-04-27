@@ -17,75 +17,62 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.reuseID = reuseIdentifier;
-        
-        self.nameLabel = [UILabel new];
-        self.secondLabel = [UILabel new];
-        self.imageSymbolsLabel = [UILabel new];
-        self.avatar = [UIImageView new];
-        
-        
+    
+        _nameLabel = [UILabel new];
+        _secondLabel = [UILabel new];
+        _imageSymbolsLabel = [UILabel new];
+        _avatar = [UIImageView new];
+        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+      
         [self addSubview: self.nameLabel];
         [self addSubview: self.secondLabel];
-        self.avatar.backgroundColor = [UIColor yellowColor];
+        _avatar.backgroundColor = [UIColor yellowColor];
         [self addSubview:self.avatar];
         [self.avatar  addSubview:self.imageSymbolsLabel];
         
         [self makeConstraints];
-        
-        
-        
+      
     }
        return self;
 }
 
 -(void)makeConstraints{
     
-    UIView *ourView = self.superview;
+    UIView *ourView = self.contentView;
     
     [self.avatar mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.imageView.mas_top);
-        make.left.equalTo(self.imageView.mas_left);
-        make.width.with.offset(30);
-        make.height.with.offset(30);
-     //   make.bottom.equalTo(self.imageView.mas_bottom).with.offset(-10);
-     //   make.right.equalTo(self.imageView.mas_right).with.offset(-10);
+        make.top.equalTo(self.contentView.mas_top);
+        make.left.equalTo(self.contentView.mas_left).with.offset(16);
+        make.width.height.with.offset(42);
+        make.bottom.equalTo(self.contentView.mas_bottom);
     }];
     
     
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(ourView.mas_top);
-        make.left.equalTo(self.avatar.mas_left).with.offset(10);
-        make.bottom.equalTo(ourView.mas_bottom).with.offset(-10);
-        make.right.equalTo(ourView.mas_right).with.offset(-10);
-    }];
+        make.left.equalTo(self.avatar.mas_right).with.offset(16);
+        }];
     
     [self.secondLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(ourView.mas_top).with.offset(20);
-        make.left.equalTo(self.avatar.mas_left).with.offset(10);
-        make.bottom.equalTo(ourView.mas_bottom).with.offset(-10);
-        make.right.equalTo(ourView.mas_right).with.offset(-10);
+        make.top.equalTo(self.nameLabel.mas_bottom);
+        make.left.equalTo(self.avatar.mas_right).with.offset(16);
     }];
     
     [self.imageSymbolsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.avatar.mas_top);
-        make.left.equalTo(self.avatar.mas_left).with.offset(10);
-        make.bottom.equalTo(self.avatar.mas_bottom).with.offset(-10);
-        make.right.equalTo(self.avatar.mas_right).with.offset(-10);
+      make.centerX.equalTo(self.avatar.mas_centerX);
+      make.centerY.equalTo(self.avatar.mas_centerY);
     }];
-    
+  
+  // and circling avatar
+    CALayer *cellImageLayer = self.avatar.layer;
+    [cellImageLayer setCornerRadius:21];
+    [cellImageLayer setMasksToBounds:YES];
+    [cellImageLayer setBorderWidth:1];
 
 }
 
-
-
 - (void)awakeFromNib {
     [super awakeFromNib];
-  
-    CALayer *cellImageLayer = self.imageView.layer;
-    [cellImageLayer setCornerRadius:9];
-    [cellImageLayer setMasksToBounds:YES];
-
-   
 
 }
 

@@ -26,14 +26,22 @@
 - (instancetype)initWithFirstName: (NSString*)name andSecondName: (NSString*)second {
     self = [super init];
     if (self) {
-        self.firstName = name;
-        self.secondName = second;
-        self.firstSymbols = [NSString stringWithFormat:@"%@%@",[name substringToIndex:1],[second substringToIndex:1]];
+        _firstName = name;
+        _secondName = second;
+        _firstSymbols = [NSString stringWithFormat:@"%@%@",[name substringToIndex:1],[second substringToIndex:1]];
+        
         
     }
     return self;
 }
 
+-(NSString *)generateColor{
+  
+    
+    
+    
+  return @"dd";
+}
 
 
 @end

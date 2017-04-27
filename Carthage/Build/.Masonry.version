@@ -2,7 +2,7 @@
   "commitish" : "v1.0.2",
   "iOS" : [
     {
-      "hash" : "3255924f65eeead5880fb335b4e4ce1c22e1e04e4b55272c76a922e0e9526ff8",
+      "hash" : "e9b097bb78961a60bc0b48091e5f3c8172ae130067acfbd7b76c80d2ad4b87ad",
       "name" : "Masonry"
     }
   ]
