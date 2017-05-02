@@ -7,7 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import "ListViewController.h"
+//#import "ListViewController.h"
+#import "LoginViewController.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 @import UIKit;
 
 @interface AppDelegate ()
@@ -19,18 +21,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   
-  //[[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:82.0/255.0
-    //                                                            green:176.0/255.0
-    //                                                             blue:243.0/255.0
-    //                                                            alpha:1.0]];
-  //[[UINavigationBar appearance] setTitleTextAttributes:@{
-      //                                                   NSForegroundColorAttributeName:[UIColor whiteColor]
-      //                                                  }];
-  //[[UINavigationBar appearance] setTranslucent:YES];
+    [[FBSDKApplicationDelegate sharedInstance] application:application
+                             didFinishLaunchingWithOptions:launchOptions];
   
     UIWindow *window = [UIWindow new];
     
-    UIViewController *startVC = [ListViewController new];
+    UIViewController *startVC = [LoginViewController new];
     
     UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:startVC];
   
@@ -42,6 +38,19 @@
     
     
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+            options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    
+    BOOL handled = [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                                  openURL:url
+                                                        sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+                                                               annotation:options[UIApplicationOpenURLOptionsAnnotationKey]
+                    ];
+    // Add any custom logic here.
+    return handled;
 }
 
 
@@ -63,7 +72,9 @@
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    
+      [FBSDKAppEvents activateApp];
 }
 
 

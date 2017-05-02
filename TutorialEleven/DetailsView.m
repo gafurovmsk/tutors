@@ -52,7 +52,7 @@
   
   [_setView mas_makeConstraints:^(MASConstraintMaker *make) {
     // почему сколько бы не настроить top ofset все равно он закреплен к топу?
-    //make.top.equalTo(self.mas_top).with.offset(8);
+    make.top.equalTo(self.mas_top).with.offset(70);
     make.left.equalTo(self.mas_left).with.offset(8);
     make.right.equalTo(self.mas_right).with.offset(-8);
     make.height.equalTo(@200);
@@ -62,12 +62,12 @@
     make.centerX.equalTo(self.setView.mas_centerX);
     make.centerY.equalTo(self.setView.mas_centerY);
   }];
-  
+
   [_firstName mas_makeConstraints:^(MASConstraintMaker *make) {
     make.left.equalTo(self.mas_left).with.offset(8);
     make.top.equalTo(self.setView.mas_bottom).with.offset(8);
   }];
-  
+
   [_secondName mas_makeConstraints:^(MASConstraintMaker *make) {
     make.left.equalTo(self.firstName.mas_right).with.offset(8);
     make.top.equalTo(self.setView.mas_bottom).with.offset(8);

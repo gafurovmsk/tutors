@@ -12,16 +12,19 @@
 		040B60E51EAFAFDB00131673 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040B60E41EAFAFDB00131673 /* ListViewController.m */; };
 		040B60EA1EAFAFDC00131673 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 040B60E91EAFAFDC00131673 /* Assets.xcassets */; };
 		040B60ED1EAFAFDC00131673 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 040B60EB1EAFAFDC00131673 /* LaunchScreen.storyboard */; };
-		040B60F61EAFB22100131673 /* Masonry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040B60F51EAFB22100131673 /* Masonry.framework */; };
-		040B60F81EAFB3BF00131673 /* Masonry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040B60F51EAFB22100131673 /* Masonry.framework */; };
-		040B60F91EAFB3BF00131673 /* Masonry.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 040B60F51EAFB22100131673 /* Masonry.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		040B60FD1EAFBC0B00131673 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 040B60FC1EAFBC0B00131673 /* Contact.m */; };
 		040B61021EAFC08B00131673 /* ContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 040B61011EAFC08B00131673 /* ContactCell.m */; };
 		042A0DDB1EB25E3900FA701D /* CColorDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 042A0DDA1EB25E3900FA701D /* CColorDictionary.m */; };
-		042A0DDD1EB2654E00FA701D /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042A0DDC1EB2654E00FA701D /* AFNetworking.framework */; };
-		042A0DDE1EB2658B00FA701D /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042A0DDC1EB2654E00FA701D /* AFNetworking.framework */; };
-		042A0DDF1EB2658B00FA701D /* AFNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 042A0DDC1EB2654E00FA701D /* AFNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		042A0DE21EB265B000FA701D /* ApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 042A0DE11EB265B000FA701D /* ApiManager.m */; };
+		04F56D111EB8F853004CB8FF /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F56D0D1EB8F84E004CB8FF /* AFNetworking.framework */; };
+		04F56D121EB8F853004CB8FF /* AFNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04F56D0D1EB8F84E004CB8FF /* AFNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		04F56D131EB8F853004CB8FF /* Masonry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F56D0E1EB8F84E004CB8FF /* Masonry.framework */; };
+		04F56D141EB8F853004CB8FF /* Masonry.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04F56D0E1EB8F84E004CB8FF /* Masonry.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		04F56D1E1EB8FA3A004CB8FF /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F56D1A1EB8FA3A004CB8FF /* Bolts.framework */; };
+		04F56D1F1EB8FA3A004CB8FF /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F56D1B1EB8FA3A004CB8FF /* FBSDKCoreKit.framework */; };
+		04F56D201EB8FA3A004CB8FF /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F56D1C1EB8FA3A004CB8FF /* FBSDKLoginKit.framework */; };
+		04F56D211EB8FA3A004CB8FF /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F56D1D1EB8FA3A004CB8FF /* FBSDKShareKit.framework */; };
+		04F56D241EB9046C004CB8FF /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F56D231EB9046C004CB8FF /* LoginViewController.m */; };
 		18A6ACDA1EB7C3B000988A27 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A6ACD91EB7C3B000988A27 /* DetailsViewController.m */; };
 		18A6ACDD1EB7C4A200988A27 /* DetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A6ACDC1EB7C4A200988A27 /* DetailsView.m */; };
 /* End PBXBuildFile section */
@@ -33,8 +36,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				040B60F91EAFB3BF00131673 /* Masonry.framework in Embed Frameworks */,
-				042A0DDF1EB2658B00FA701D /* AFNetworking.framework in Embed Frameworks */,
+				04F56D121EB8F853004CB8FF /* AFNetworking.framework in Embed Frameworks */,
+				04F56D141EB8F853004CB8FF /* Masonry.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -51,16 +54,22 @@
 		040B60E91EAFAFDC00131673 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		040B60EC1EAFAFDC00131673 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		040B60EE1EAFAFDC00131673 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		040B60F51EAFB22100131673 /* Masonry.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Masonry.framework; path = Carthage/Build/iOS/Masonry.framework; sourceTree = "<group>"; };
 		040B60FB1EAFBB6500131673 /* Contact.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
 		040B60FC1EAFBC0B00131673 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
 		040B61001EAFC08B00131673 /* ContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactCell.h; sourceTree = "<group>"; };
 		040B61011EAFC08B00131673 /* ContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactCell.m; sourceTree = "<group>"; };
 		042A0DD91EB25E3900FA701D /* CColorDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CColorDictionary.h; sourceTree = "<group>"; };
 		042A0DDA1EB25E3900FA701D /* CColorDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CColorDictionary.m; sourceTree = "<group>"; };
-		042A0DDC1EB2654E00FA701D /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = Carthage/Build/iOS/AFNetworking.framework; sourceTree = "<group>"; };
 		042A0DE01EB265B000FA701D /* ApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiManager.h; sourceTree = "<group>"; };
 		042A0DE11EB265B000FA701D /* ApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiManager.m; sourceTree = "<group>"; };
+		04F56D0D1EB8F84E004CB8FF /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = Carthage/Build/iOS/AFNetworking.framework; sourceTree = "<group>"; };
+		04F56D0E1EB8F84E004CB8FF /* Masonry.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Masonry.framework; path = Carthage/Build/iOS/Masonry.framework; sourceTree = "<group>"; };
+		04F56D1A1EB8FA3A004CB8FF /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = TutorialEleven/Frameworks/Bolts.framework; sourceTree = "<group>"; };
+		04F56D1B1EB8FA3A004CB8FF /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = TutorialEleven/Frameworks/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		04F56D1C1EB8FA3A004CB8FF /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = TutorialEleven/Frameworks/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		04F56D1D1EB8FA3A004CB8FF /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = TutorialEleven/Frameworks/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		04F56D221EB9046C004CB8FF /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		04F56D231EB9046C004CB8FF /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		18A6ACD81EB7C3B000988A27 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		18A6ACD91EB7C3B000988A27 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		18A6ACDB1EB7C4A200988A27 /* DetailsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsView.h; sourceTree = "<group>"; };
@@ -72,10 +81,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				040B60F81EAFB3BF00131673 /* Masonry.framework in Frameworks */,
-				042A0DDE1EB2658B00FA701D /* AFNetworking.framework in Frameworks */,
-				040B60F61EAFB22100131673 /* Masonry.framework in Frameworks */,
-				042A0DDD1EB2654E00FA701D /* AFNetworking.framework in Frameworks */,
+				04F56D1E1EB8FA3A004CB8FF /* Bolts.framework in Frameworks */,
+				04F56D1F1EB8FA3A004CB8FF /* FBSDKCoreKit.framework in Frameworks */,
+				04F56D201EB8FA3A004CB8FF /* FBSDKLoginKit.framework in Frameworks */,
+				04F56D211EB8FA3A004CB8FF /* FBSDKShareKit.framework in Frameworks */,
+				04F56D111EB8F853004CB8FF /* AFNetworking.framework in Frameworks */,
+				04F56D131EB8F853004CB8FF /* Masonry.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,8 +139,12 @@
 		040B60F41EAFB22100131673 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				042A0DDC1EB2654E00FA701D /* AFNetworking.framework */,
-				040B60F51EAFB22100131673 /* Masonry.framework */,
+				04F56D1A1EB8FA3A004CB8FF /* Bolts.framework */,
+				04F56D1B1EB8FA3A004CB8FF /* FBSDKCoreKit.framework */,
+				04F56D1C1EB8FA3A004CB8FF /* FBSDKLoginKit.framework */,
+				04F56D1D1EB8FA3A004CB8FF /* FBSDKShareKit.framework */,
+				04F56D0D1EB8F84E004CB8FF /* AFNetworking.framework */,
+				04F56D0E1EB8F84E004CB8FF /* Masonry.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -150,6 +165,8 @@
 				040B60E41EAFAFDB00131673 /* ListViewController.m */,
 				18A6ACD81EB7C3B000988A27 /* DetailsViewController.h */,
 				18A6ACD91EB7C3B000988A27 /* DetailsViewController.m */,
+				04F56D221EB9046C004CB8FF /* LoginViewController.h */,
+				04F56D231EB9046C004CB8FF /* LoginViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -277,6 +294,7 @@
 				040B60FD1EAFBC0B00131673 /* Contact.m in Sources */,
 				18A6ACDD1EB7C4A200988A27 /* DetailsView.m in Sources */,
 				042A0DDB1EB25E3900FA701D /* CColorDictionary.m in Sources */,
+				04F56D241EB9046C004CB8FF /* LoginViewController.m in Sources */,
 				040B61021EAFC08B00131673 /* ContactCell.m in Sources */,
 				040B60E51EAFAFDB00131673 /* ListViewController.m in Sources */,
 				040B60E21EAFAFDB00131673 /* AppDelegate.m in Sources */,
@@ -395,9 +413,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/TutorialEleven/Frameworks/**",
+					"$(PROJECT_DIR)/Carthage/Build/iOS/**",
 				);
 				INFOPLIST_FILE = TutorialEleven/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SBT.TutorialEleven;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -411,8 +431,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/TutorialEleven/Frameworks",
 				);
 				INFOPLIST_FILE = TutorialEleven/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SBT.TutorialEleven;
 				PRODUCT_NAME = "$(TARGET_NAME)";
