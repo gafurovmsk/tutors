@@ -10,16 +10,12 @@
 
 @import Foundation;
 
-
-
-
-
 @interface Contact : NSObject
 
 @property NSString * firstName;
 @property NSString * secondName;
 @property NSString * firstSymbols;
-@property NSString * avatarColor;
+
 
 - (instancetype)initWithFirstName: (NSString*)name andSecondName: (NSString*)second;
 

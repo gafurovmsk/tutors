@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "ListViewController.h"
 @import UIKit;
 
 @interface AppDelegate ()
@@ -18,14 +18,22 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-   
-    
+  
+  //[[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:82.0/255.0
+    //                                                            green:176.0/255.0
+    //                                                             blue:243.0/255.0
+    //                                                            alpha:1.0]];
+  //[[UINavigationBar appearance] setTitleTextAttributes:@{
+      //                                                   NSForegroundColorAttributeName:[UIColor whiteColor]
+      //                                                  }];
+  //[[UINavigationBar appearance] setTranslucent:YES];
+  
     UIWindow *window = [UIWindow new];
     
-    UIViewController *startVC = [ViewController new];
+    UIViewController *startVC = [ListViewController new];
     
     UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:startVC];
-    
+  
     window.rootViewController = navigationController;
     
     self.window = window ;

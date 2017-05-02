@@ -8,16 +8,24 @@
 
 #import "ContactCell.h"
 #import "QuartzCore/CALayer.h"
+#import "Contact.h"
+#import "CColorDictionary.h"
 @import Masonry;
 
+@interface ContactCell()
+
+@property (nonatomic, strong)UILabel *nameLabel;
+@property (nonatomic, strong)UILabel *secondLabel;
+@property (nonatomic, strong)UILabel *imageSymbolsLabel;
+@property (nonatomic,strong)UIImageView *avatar;
+
+@end
 
 @implementation ContactCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.reuseID = reuseIdentifier;
-    
         _nameLabel = [UILabel new];
         _secondLabel = [UILabel new];
         _imageSymbolsLabel = [UILabel new];
@@ -26,7 +34,6 @@
       
         [self addSubview: self.nameLabel];
         [self addSubview: self.secondLabel];
-        _avatar.backgroundColor = [UIColor yellowColor];
         [self addSubview:self.avatar];
         [self.avatar  addSubview:self.imageSymbolsLabel];
         
@@ -46,8 +53,7 @@
         make.width.height.with.offset(42);
         make.bottom.equalTo(self.contentView.mas_bottom);
     }];
-    
-    
+  
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(ourView.mas_top);
         make.left.equalTo(self.avatar.mas_right).with.offset(16);
@@ -68,18 +74,13 @@
     [cellImageLayer setCornerRadius:21];
     [cellImageLayer setMasksToBounds:YES];
     [cellImageLayer setBorderWidth:1];
-
 }
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-
+-(void)addContact: (Contact*) contact{
+  
+  self.nameLabel.text = contact.firstName;
+  self.secondLabel.text = contact.secondName;
+  self.imageSymbolsLabel.text = contact.firstSymbols;
+  self.avatar.backgroundColor = [CColorDictionary generateColorWithString:contact.firstSymbols];
 }
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
 @end

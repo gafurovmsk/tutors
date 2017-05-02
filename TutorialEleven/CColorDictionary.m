@@ -13,7 +13,7 @@
 
 +(UIColor*)generateColorWithString:(NSString *)symbols{
     
-    CGFloat alpha = 0.5;
+    CGFloat alpha = 0.58;
     
     int asciiFirst = [symbols characterAtIndex:0];
     int asciiSecond = [symbols characterAtIndex:1];

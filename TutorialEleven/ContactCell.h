@@ -7,13 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class Contact;
 
 @interface ContactCell : UITableViewCell
+-(void)addContact: (Contact*) contact;
 
-@property (nonatomic, strong)UILabel *nameLabel;
-@property (nonatomic, strong)UILabel *secondLabel;
-@property (nonatomic, strong)UILabel *imageSymbolsLabel;
-@property (nonatomic,strong)UIImageView *avatar;
-@property NSString *reuseID;
 
 @end
