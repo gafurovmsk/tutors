@@ -113,7 +113,7 @@
   
   NSArray *SCOPE = @[@"friends", @"email"];
   
-  VKRequest *request = [VKRequest wi]
+  //VKRequest *request = [VKRequest wi]
   
   
 }

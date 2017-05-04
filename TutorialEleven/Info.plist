@@ -63,12 +63,12 @@
     <key>NSPhotoLibraryUsageDescription</key>
     <string>Приложению нужен доступ для полного отображения контакта</string>
     
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-      <string>vk</string>
-      <string>vk-share</string>
-      <string>vkauthorize</string>
-    </array>
+<!--    <key>LSApplicationQueriesSchemes</key>-->
+<!--    <array>-->
+<!--      <string>vk</string>-->
+<!--      <string>vk-share</string>-->
+<!--      <string>vkauthorize</string>-->
+<!--    </array>-->
 
     
 </dict>
