@@ -16,12 +16,22 @@
     if (self) {
         _firstName = name;
         _secondName = second;
-        _firstSymbols = [NSString stringWithFormat:@"%@%@",
+        _imageSymbols = [NSString stringWithFormat:@"%@%@",
                          [name substringToIndex:1],
                          [second substringToIndex:1]
                          ];
     }
     return self;
+}
+
+-(instancetype)initWithImage:(NSData*)image andFirst:(NSString*)name andLastName:(NSString*)last{
+  
+  self = [self initWithFirstName:name andSecondName:last];
+  
+  if(self){
+    _contactImageData = image;
+  }
+  return self;
 }
 
 @end

@@ -8,6 +8,8 @@
 
 #import "DetailsViewController.h"
 #import "DetailsView.h"
+#import "Contact.h"
+@import Masonry;
 
 @interface DetailsViewController ()
 
@@ -20,20 +22,22 @@
   if (!self) return nil;
   _showedContact = contact;
   self.title = title;
-  DetailsView * view = [DetailsView new];
-  
-  if(_showedContact != nil) {
-    [view addThisContact:_showedContact];
-     self.view = view;
-  }
-  
- 
-  
   return self;
 }
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
+  [super viewDidLoad];
+  
+  DetailsView *view = [DetailsView new];
+  [self.view addSubview:view];
+  
+  [view mas_makeConstraints:^(MASConstraintMaker *make) {
+    make.edges.equalTo(self.view);
+  }];
+  
+  
+  [view addContactWithName:self.showedContact.firstName andSecond:self.showedContact.secondName andImage:self.showedContact.contactImageData];
+  
 }
 
 @end

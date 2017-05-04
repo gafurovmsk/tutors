@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Contact.h"
 @interface DetailsView : UIView
 
--(void)addThisContact: (Contact *) contact;
+-(void)addContactWithName:(NSString *)firstName andSecond:(NSString *)secondName andImage:(NSData *)imageData;
 
 @end

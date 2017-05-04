@@ -10,6 +10,7 @@
 //#import "ListViewController.h"
 #import "LoginViewController.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <VKSdkFramework/VKSdkFramework.h>
 @import UIKit;
 
 @interface AppDelegate ()
@@ -24,6 +25,8 @@
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
   
+  [VKSdk initializeWithAppId:@"6006342"];
+   
     UIWindow *window = [UIWindow new];
     
     UIViewController *startVC = [LoginViewController new];
@@ -49,10 +52,12 @@
                                                         sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
                                                                annotation:options[UIApplicationOpenURLOptionsAnnotationKey]
                     ];
-    // Add any custom logic here.
+  
+    [VKSdk processOpenURL:url fromApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]];
+  
+  
     return handled;
 }
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

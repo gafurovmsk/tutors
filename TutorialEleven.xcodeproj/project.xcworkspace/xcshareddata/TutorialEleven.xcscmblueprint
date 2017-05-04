@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "F78F3821F5B702B1C12AB9983BB5614221EF2C58",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "1A66F731B009FE59FD44D416F8087DFD596CB052" : 9223372036854775807,
+    "F78F3821F5B702B1C12AB9983BB5614221EF2C58" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "8CDB9480-54A3-4D85-824F-6D691F3A0EED",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "1A66F731B009FE59FD44D416F8087DFD596CB052" : "",
+    "F78F3821F5B702B1C12AB9983BB5614221EF2C58" : "TutorEleven\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "TutorialEleven",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "TutorialEleven.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/gafurovmsk\/sberTeh.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1A66F731B009FE59FD44D416F8087DFD596CB052"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/gafurovmsk\/tutors.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F78F3821F5B702B1C12AB9983BB5614221EF2C58"
+    }
+  ]
+}

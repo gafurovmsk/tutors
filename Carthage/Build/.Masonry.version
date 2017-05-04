@@ -2,7 +2,20 @@
   "commitish" : "v1.0.2",
   "iOS" : [
     {
-      "hash" : "e9b097bb78961a60bc0b48091e5f3c8172ae130067acfbd7b76c80d2ad4b87ad",
+      "hash" : "9bc5591a8a15b086a890f9317e9e1f9b7efe1d5ec2305da3930c6e0227c5cd3c",
+      "name" : "Masonry"
+    }
+  ],
+  "xcodeVersion" : "Xcode 8.2.1\nBuild version 8C1002",
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "Mac" : [
+    {
+      "hash" : "5b06a80aa054245a104afd6865a1b99211af92c53a9be16720531e76412c5fce",
       "name" : "Masonry"
     }
   ]

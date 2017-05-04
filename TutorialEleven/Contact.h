@@ -14,10 +14,13 @@
 
 @property NSString * firstName;
 @property NSString * secondName;
-@property NSString * firstSymbols;
+@property NSString * imageSymbols;
+@property NSData * contactImageData;
 
 
 - (instancetype)initWithFirstName: (NSString*)name andSecondName: (NSString*)second;
+
+-(instancetype)initWithImage:(NSData*)image andFirst:(NSString*)name andLastName:(NSString*)last;
 
 @end
     

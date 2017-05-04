@@ -10,7 +10,12 @@
 @class Contact;
 
 @interface ContactCell : UITableViewCell
--(void)addContact: (Contact*) contact;
 
+@property (nonatomic, strong)UILabel *firstNameLabel;
+@property (nonatomic, strong)UILabel *secondNameLabel;
+@property (nonatomic, strong)UILabel *imageSymbolsLabel;
+@property (nonatomic,strong)UIImageView *contactImage;
+
++(CGFloat)heightForCell;
 
 @end

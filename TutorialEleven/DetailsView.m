@@ -8,7 +8,10 @@
 
 #import "DetailsView.h"
 #import "CColorDictionary.h"
+#import "QuartzCore/CALayer.h"
 @import Masonry;
+
+CGFloat const imageHeight = 180;
 
 @interface DetailsView()
 
@@ -26,7 +29,7 @@
   self = [super init];
   if (!self) return nil;
 
-  self.backgroundColor = [UIColor darkGrayColor];
+  self.backgroundColor = [UIColor lightGrayColor];
   
   _firstName = [UILabel new];
   _firstName.text = @"Testname";
@@ -38,6 +41,10 @@
   
   _setView = [UIView new];
   _setView.backgroundColor = [UIColor magentaColor];
+  [_setView.layer setMasksToBounds:YES];
+  [_setView.layer setCornerRadius:imageHeight/2];
+  [_setView.layer setBorderWidth:1];
+  [_setView setContentMode:UIViewContentModeScaleAspectFit];
   [self addSubview:_setView];
   
   _firstSymbols = [UILabel new];
@@ -52,10 +59,9 @@
   
   [_setView mas_makeConstraints:^(MASConstraintMaker *make) {
     // почему сколько бы не настроить top ofset все равно он закреплен к топу?
-    make.top.equalTo(self.mas_top).with.offset(70);
-    make.left.equalTo(self.mas_left).with.offset(8);
-    make.right.equalTo(self.mas_right).with.offset(-8);
-    make.height.equalTo(@200);
+    make.top.equalTo(self.mas_top).with.offset(66);
+    make.centerX.equalTo(self.mas_centerX);
+    make.height.width.equalTo(@(imageHeight));
   }];
   
   [_firstSymbols mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -69,17 +75,23 @@
   }];
 
   [_secondName mas_makeConstraints:^(MASConstraintMaker *make) {
-    make.left.equalTo(self.firstName.mas_right).with.offset(8);
-    make.top.equalTo(self.setView.mas_bottom).with.offset(8);
+    make.left.equalTo(self.mas_left).with.offset(8);
+    make.top.equalTo(self.firstName.mas_bottom).with.offset(8);
   }];
 }
 
--(void)addThisContact:(Contact *)contact{
+-(void)addContactWithName:(NSString *)firstName andSecond:(NSString *)secondName andImage:(NSData *)imageData{
+  NSString *name = [@"Имя: " stringByAppendingString: firstName];
+  NSString *sName = [@"Фамилия: " stringByAppendingString:secondName];
+  //[NSString stringWithFormat:@"%@%@", sample1,sample2];
   
-  self.firstName.text = contact.firstName;
-  self.secondName.text = contact.secondName;
-  self.firstSymbols.text = contact.firstSymbols;
-  self.setView.backgroundColor = [CColorDictionary generateColorWithString:contact.firstSymbols];
+  self.firstName.text = name;
+  self.secondName.text = sName;
+  if (!imageData){
+  self.setView.backgroundColor = [CColorDictionary generateColorWithString:firstName];
+  } else {
+    [self.setView addSubview:[[UIImageView alloc]initWithImage:[UIImage imageWithData:imageData]]];
+  }
 }
 
 @end

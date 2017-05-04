@@ -2,7 +2,26 @@
   "commitish" : "3.1.0",
   "iOS" : [
     {
-      "hash" : "8cfa35492f624177d447615a513a343a73eb2bac39513e64b5dbbbc94b454913",
+      "hash" : "773688d5fe554a70b14c86aaa5918d2afd33570474d7d69bd9a0feeb2975666f",
+      "name" : "AFNetworking"
+    }
+  ],
+  "xcodeVersion" : "Xcode 8.2.1\nBuild version 8C1002",
+  "watchOS" : [
+    {
+      "hash" : "2e8865324c1c40f5a453f81fd1fb36630f839ae85d2f624900ae81d7010e53c6",
+      "name" : "AFNetworking"
+    }
+  ],
+  "tvOS" : [
+    {
+      "hash" : "7e5eda3cdb99c381462b7eff60b030b475809a09b5836e9a836c61bb61c76d19",
+      "name" : "AFNetworking"
+    }
+  ],
+  "Mac" : [
+    {
+      "hash" : "238e1a152e8b010376ae7413bf3d22c8fba5398bca39e37bd8035978fc0bb97e",
       "name" : "AFNetworking"
     }
   ]

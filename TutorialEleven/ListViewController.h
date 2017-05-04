@@ -10,6 +10,7 @@
 
 @interface ListViewController : UIViewController
 
+-(void)addContacts:(NSMutableArray *)list;
 
 @end
 

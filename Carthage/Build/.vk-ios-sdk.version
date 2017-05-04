@@ -1,0 +1,19 @@
+{
+  "commitish" : "1.4.6",
+  "iOS" : [
+    {
+      "hash" : "3bb534481e5f71ee0bc4ee16c964e4dcef629bb60e812778ccaaaec04075f1c8",
+      "name" : "VKSdkFramework"
+    }
+  ],
+  "xcodeVersion" : "Xcode 8.2.1\nBuild version 8C1002",
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "Mac" : [
+
+  ]
+}

@@ -25,6 +25,9 @@
 		04F56D201EB8FA3A004CB8FF /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F56D1C1EB8FA3A004CB8FF /* FBSDKLoginKit.framework */; };
 		04F56D211EB8FA3A004CB8FF /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F56D1D1EB8FA3A004CB8FF /* FBSDKShareKit.framework */; };
 		04F56D241EB9046C004CB8FF /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F56D231EB9046C004CB8FF /* LoginViewController.m */; };
+		188A849E1EBB6B0A00E7DEF0 /* VKSdkFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188A849D1EBB6B0A00E7DEF0 /* VKSdkFramework.framework */; };
+		188A849F1EBB6B1400E7DEF0 /* VKSdkFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188A849D1EBB6B0A00E7DEF0 /* VKSdkFramework.framework */; };
+		188A84A01EBB6B1400E7DEF0 /* VKSdkFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 188A849D1EBB6B0A00E7DEF0 /* VKSdkFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		18A6ACDA1EB7C3B000988A27 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A6ACD91EB7C3B000988A27 /* DetailsViewController.m */; };
 		18A6ACDD1EB7C4A200988A27 /* DetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A6ACDC1EB7C4A200988A27 /* DetailsView.m */; };
 /* End PBXBuildFile section */
@@ -37,6 +40,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				04F56D121EB8F853004CB8FF /* AFNetworking.framework in Embed Frameworks */,
+				188A84A01EBB6B1400E7DEF0 /* VKSdkFramework.framework in Embed Frameworks */,
 				04F56D141EB8F853004CB8FF /* Masonry.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -70,6 +74,7 @@
 		04F56D1D1EB8FA3A004CB8FF /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = TutorialEleven/Frameworks/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		04F56D221EB9046C004CB8FF /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		04F56D231EB9046C004CB8FF /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		188A849D1EBB6B0A00E7DEF0 /* VKSdkFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VKSdkFramework.framework; path = Carthage/Build/iOS/VKSdkFramework.framework; sourceTree = "<group>"; };
 		18A6ACD81EB7C3B000988A27 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		18A6ACD91EB7C3B000988A27 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		18A6ACDB1EB7C4A200988A27 /* DetailsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsView.h; sourceTree = "<group>"; };
@@ -86,7 +91,9 @@
 				04F56D201EB8FA3A004CB8FF /* FBSDKLoginKit.framework in Frameworks */,
 				04F56D211EB8FA3A004CB8FF /* FBSDKShareKit.framework in Frameworks */,
 				04F56D111EB8F853004CB8FF /* AFNetworking.framework in Frameworks */,
+				188A849F1EBB6B1400E7DEF0 /* VKSdkFramework.framework in Frameworks */,
 				04F56D131EB8F853004CB8FF /* Masonry.framework in Frameworks */,
+				188A849E1EBB6B0A00E7DEF0 /* VKSdkFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +146,7 @@
 		040B60F41EAFB22100131673 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				188A849D1EBB6B0A00E7DEF0 /* VKSdkFramework.framework */,
 				04F56D1A1EB8FA3A004CB8FF /* Bolts.framework */,
 				04F56D1B1EB8FA3A004CB8FF /* FBSDKCoreKit.framework */,
 				04F56D1C1EB8FA3A004CB8FF /* FBSDKLoginKit.framework */,
@@ -415,6 +423,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/TutorialEleven/Frameworks/**",
 					"$(PROJECT_DIR)/Carthage/Build/iOS/**",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = TutorialEleven/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
