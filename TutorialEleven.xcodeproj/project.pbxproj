@@ -15,7 +15,6 @@
 		040B60FD1EAFBC0B00131673 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 040B60FC1EAFBC0B00131673 /* Contact.m */; };
 		040B61021EAFC08B00131673 /* ContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 040B61011EAFC08B00131673 /* ContactCell.m */; };
 		042A0DDB1EB25E3900FA701D /* CColorDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 042A0DDA1EB25E3900FA701D /* CColorDictionary.m */; };
-		042A0DE21EB265B000FA701D /* ApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 042A0DE11EB265B000FA701D /* ApiManager.m */; };
 		04F56D111EB8F853004CB8FF /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F56D0D1EB8F84E004CB8FF /* AFNetworking.framework */; };
 		04F56D121EB8F853004CB8FF /* AFNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04F56D0D1EB8F84E004CB8FF /* AFNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		04F56D131EB8F853004CB8FF /* Masonry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F56D0E1EB8F84E004CB8FF /* Masonry.framework */; };
@@ -64,8 +63,6 @@
 		040B61011EAFC08B00131673 /* ContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactCell.m; sourceTree = "<group>"; };
 		042A0DD91EB25E3900FA701D /* CColorDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CColorDictionary.h; sourceTree = "<group>"; };
 		042A0DDA1EB25E3900FA701D /* CColorDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CColorDictionary.m; sourceTree = "<group>"; };
-		042A0DE01EB265B000FA701D /* ApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiManager.h; sourceTree = "<group>"; };
-		042A0DE11EB265B000FA701D /* ApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiManager.m; sourceTree = "<group>"; };
 		04F56D0D1EB8F84E004CB8FF /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = Carthage/Build/iOS/AFNetworking.framework; sourceTree = "<group>"; };
 		04F56D0E1EB8F84E004CB8FF /* Masonry.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Masonry.framework; path = Carthage/Build/iOS/Masonry.framework; sourceTree = "<group>"; };
 		04F56D1A1EB8FA3A004CB8FF /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = TutorialEleven/Frameworks/Bolts.framework; sourceTree = "<group>"; };
@@ -122,7 +119,6 @@
 			children = (
 				040B60E01EAFAFDB00131673 /* AppDelegate.h */,
 				040B60E11EAFAFDB00131673 /* AppDelegate.m */,
-				042A0DE31EB265DA00FA701D /* Netwroking */,
 				040B60FF1EAFC01C00131673 /* Controllers */,
 				040B60FE1EAFBC1200131673 /* Model */,
 				18C7029B1EB225D50087C049 /* Views */,
@@ -188,15 +184,6 @@
 				040B61011EAFC08B00131673 /* ContactCell.m */,
 			);
 			name = Cell;
-			sourceTree = "<group>";
-		};
-		042A0DE31EB265DA00FA701D /* Netwroking */ = {
-			isa = PBXGroup;
-			children = (
-				042A0DE01EB265B000FA701D /* ApiManager.h */,
-				042A0DE11EB265B000FA701D /* ApiManager.m */,
-			);
-			name = Netwroking;
 			sourceTree = "<group>";
 		};
 		18C7029B1EB225D50087C049 /* Views */ = {
@@ -299,7 +286,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				042A0DE21EB265B000FA701D /* ApiManager.m in Sources */,
 				040B60FD1EAFBC0B00131673 /* Contact.m in Sources */,
 				18A6ACDD1EB7C4A200988A27 /* DetailsView.m in Sources */,
 				042A0DDB1EB25E3900FA701D /* CColorDictionary.m in Sources */,

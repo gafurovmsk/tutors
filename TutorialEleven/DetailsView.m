@@ -15,16 +15,16 @@ CGFloat const imageHeight = 180;
 
 @interface DetailsView()
 
-@property (nonatomic,strong) UIView *setView;
-@property (nonatomic,strong) UILabel *firstName;
-@property (nonatomic,strong) UILabel *secondName;
-@property (nonatomic,strong) UILabel *firstSymbols;
+@property (strong,nonatomic) UIView *setView;
+@property (strong,nonatomic) UILabel *firstName;
+@property (strong,nonatomic) UILabel *secondName;
+@property (strong,nonatomic) UILabel *firstSymbols;
 
 @end
 
 @implementation DetailsView
 
--(instancetype)init{
+- (instancetype)init{
   
   self = [super init];
   if (!self) return nil;
@@ -55,7 +55,7 @@ CGFloat const imageHeight = 180;
   return self;
 }
 
--(void)makeConstraints {
+- (void)makeConstraints {
   
   [_setView mas_makeConstraints:^(MASConstraintMaker *make) {
     // почему сколько бы не настроить top ofset все равно он закреплен к топу?
@@ -80,7 +80,7 @@ CGFloat const imageHeight = 180;
   }];
 }
 
--(void)addContactWithName:(NSString *)firstName andSecond:(NSString *)secondName andImage:(NSData *)imageData{
+- (void)addContactWithName:(NSString *)firstName andSecond:(NSString *)secondName andImage:(NSData *)imageData{
   NSString *name = [@"Имя: " stringByAppendingString: firstName];
   NSString *sName = [@"Фамилия: " stringByAppendingString:secondName];
   //[NSString stringWithFormat:@"%@%@", sample1,sample2];

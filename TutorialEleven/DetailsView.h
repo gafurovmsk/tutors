@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 @interface DetailsView : UIView
 
--(void)addContactWithName:(NSString *)firstName andSecond:(NSString *)secondName andImage:(NSData *)imageData;
+- (void)addContactWithName:(NSString *)firstName andSecond:(NSString *)secondName andImage:(NSData *)imageData;
 
 @end

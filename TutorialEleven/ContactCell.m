@@ -46,7 +46,7 @@ CGFloat const cellHeight = 50;
        return self;
 }
 
--(void)makeConstraints{
+- (void)makeConstraints{
     
     UIView *ourView = self.contentView;
     
@@ -75,7 +75,7 @@ CGFloat const cellHeight = 50;
   // and circling avatar
     }
 
-+(CGFloat)heightForCell {
++ (CGFloat)heightForCell {
   return cellHeight;
 }
 

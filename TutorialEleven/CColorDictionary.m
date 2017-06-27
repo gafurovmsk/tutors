@@ -11,7 +11,7 @@
 
 @implementation CColorDictionary
 
-+(UIColor*)generateColorWithString:(NSString *)symbols{
++ (UIColor*)generateColorWithString:(NSString *)symbols{
     
     CGFloat alpha = 0.58;
     

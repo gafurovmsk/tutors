@@ -35,8 +35,8 @@
     make.edges.equalTo(self.view);
   }];
   
-  
-  [view addContactWithName:self.showedContact.firstName andSecond:self.showedContact.secondName andImage:self.showedContact.contactImageData];
+  [view addContactWithName:self.showedContact.firstName
+    andSecond:self.showedContact.secondName andImage:self.showedContact.contactImageData];
   
 }
 

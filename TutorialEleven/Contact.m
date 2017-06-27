@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "Contact.h"
 
-@implementation Contact : NSObject
+@implementation Contact: NSObject
 
-- (instancetype)initWithFirstName: (NSString*)name andSecondName: (NSString*)second {
+- (instancetype)initWithFirstName: (NSString *)name andSecondName: (NSString *)second{
     self = [super init];
     if (self) {
         _firstName = name;
@@ -24,7 +24,7 @@
     return self;
 }
 
--(instancetype)initWithImage:(NSData*)image andFirst:(NSString*)name andLastName:(NSString*)last{
+- (instancetype)initWithImage:(NSData *)image andFirst:(NSString *)name andLastName:(NSString *)last{
   
   self = [self initWithFirstName:name andSecondName:last];
   

@@ -12,15 +12,13 @@
 
 @interface Contact : NSObject
 
-@property NSString * firstName;
-@property NSString * secondName;
-@property NSString * imageSymbols;
-@property NSData * contactImageData;
+@property (copy,nonatomic) NSString *firstName;
+@property (copy,nonatomic) NSString *secondName;
+@property (copy,nonatomic) NSString *imageSymbols;
+@property (strong,nonatomic) NSData *contactImageData;
 
-
-- (instancetype)initWithFirstName: (NSString*)name andSecondName: (NSString*)second;
-
--(instancetype)initWithImage:(NSData*)image andFirst:(NSString*)name andLastName:(NSString*)last;
+- (instancetype)initWithFirstName:(NSString *)name andSecondName:(NSString *)second;
+- (instancetype)initWithImage:(NSData *)image andFirst:(NSString *)name andLastName:(NSString *)last;
 
 @end
     

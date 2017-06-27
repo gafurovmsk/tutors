@@ -24,42 +24,33 @@ static NSArray *SCOPE = nil;
 
 @implementation LoginViewController
 
+#pragma mark - Lifecycle
 - (void)viewDidLoad {
   [super viewDidLoad];
   
   self.view.backgroundColor = [UIColor whiteColor];
   
   //FB button
-  UIView *containerForFBSDKLoginButton = [UIView new];
-  
   FBSDKLoginButton *fbLoginButton = [[FBSDKLoginButton alloc] init];
-  fbLoginButton.readPermissions = @[@"public_profile", @"email", @"user_friends",@"read_custom_friendlists"];
+  fbLoginButton.readPermissions = @[@"public_profile",
+                                    @"email",
+                                    @"user_friends",
+                                    @"read_custom_friendlists"];
   fbLoginButton.delegate = self;
-  [fbLoginButton setTitle:@"" forState:UIControlStateNormal];
-  
-  [containerForFBSDKLoginButton addSubview:fbLoginButton];
-  [fbLoginButton mas_makeConstraints:^(MASConstraintMaker *make) {
-    make.center.equalTo(containerForFBSDKLoginButton);
-    make.centerX.equalTo(containerForFBSDKLoginButton).with.offset(-10);
-    make.width.equalTo(fbLoginButton.mas_height);
+  [fbLoginButton mas_makeConstraints:^(MASConstraintMaker *make){
+      make.width.equalTo(fbLoginButton.mas_height);
   }];
   
-  UIBarButtonItem *fbItem = [[UIBarButtonItem alloc]initWithCustomView:containerForFBSDKLoginButton];
   
   
   //VK button
-  UIView *containerForVKLoginButton = [UIView new];
   UIButton *vkLoginButton = [UIButton new];
-  vkLoginButton.titleLabel.text = @"";
-  [vkLoginButton setBackgroundImage:[UIImage imageNamed:@"vk.png"] forState:UIControlStateNormal];
-  [containerForVKLoginButton addSubview:vkLoginButton];
-  [vkLoginButton mas_makeConstraints:^(MASConstraintMaker *make) {
-    make.center.equalTo(containerForVKLoginButton);
-    make.centerX.equalTo(containerForVKLoginButton).with.offset(-40);
-    make.height.width.equalTo(@28);
+  [vkLoginButton setBackgroundImage:[UIImage imageNamed:@"vk.png"]
+    forState:UIControlStateNormal];
+  [vkLoginButton mas_makeConstraints:^(MASConstraintMaker *make){
+    make.height.width.equalTo(@29);
     }];
-  UIBarButtonItem *vkItem = [[UIBarButtonItem alloc]initWithCustomView:containerForVKLoginButton];
-  
+  [vkLoginButton addTarget:self action:@selector(vkButtonPressed) forControlEvents:UIControlEventTouchUpInside];
   SCOPE = @[VK_PER_FRIENDS];
   [[VKSdk initializeWithAppId:@"6006342"] registerDelegate:self];
   [[VKSdk instance] setUiDelegate:self];
@@ -67,18 +58,23 @@ static NSArray *SCOPE = nil;
     if (state == VKAuthorizationAuthorized) {
       [self startWorking];
     } else if (error) {
-      [[[UIAlertView alloc] initWithTitle:nil message:[error description] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+      [[[UIAlertView alloc] initWithTitle:nil message:[error description]
+        delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
     }
   }];
-  self.navigationItem.rightBarButtonItems =@[fbItem, vkItem];
-
-  [vkLoginButton addTarget:containerForVKLoginButton action:@selector(vkButtonPressed) forControlEvents:UIControlEventTouchUpInside];
   
+  // Adding UIBarButton
+  UIBarButtonItem *vkBarItem = [[UIBarButtonItem alloc]initWithCustomView:vkLoginButton];
+  UIBarButtonItem *fbBarItem = [[UIBarButtonItem alloc]initWithCustomView:fbLoginButton];
+  self.navigationItem.rightBarButtonItems =@[fbBarItem, vkBarItem];
 }
 
+
+#pragma mark - fb SDK
 - (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {
   
 }
+
 - (void)loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error {
   
   ListViewController *listVC = [ListViewController new];
@@ -88,11 +84,10 @@ static NSArray *SCOPE = nil;
                                 parameters:nil
                                 HTTPMethod:@"GET"];
   [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
-                                        id result,
-                                        NSError *error) {
-    
-    if(error) NSLog(@"Error: %@",error.description);
-    else {
+                                        id result, NSError *error) {
+    if (error) {
+      NSLog(@"Error: %@",error.description);
+    } else {
       NSLog(@"Succesfull downloading friends list");
       NSMutableArray *list = [result valueForKey:@"data"];
       [self fetchFriendsInfo:list];
@@ -118,6 +113,7 @@ static NSArray *SCOPE = nil;
   self.list = mutableList;
 }
 
+#pragma mark - vk SDK
 - (void)vkButtonPressed{
   [VKSdk authorize:SCOPE];
 }
