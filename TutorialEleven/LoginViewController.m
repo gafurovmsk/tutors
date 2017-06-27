@@ -14,9 +14,10 @@
 #import "Contact.h"
 @import Masonry;
 
+static NSArray *SCOPE = nil;
 
-@interface LoginViewController () <FBSDKLoginButtonDelegate,VKSdkDelegate>
-//@property FBSDKAccessToken *token;
+@interface LoginViewController () <FBSDKLoginButtonDelegate,VKSdkDelegate,VKSdkUIDelegate>
+
 @property (nonatomic,strong)NSArray<Contact*> *list;
 
 @end
@@ -38,9 +39,17 @@
   }];
   
   //VK button
-  UIButton *vkLoginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-  vkLoginButton.titleLabel.text = @"Вход во вконтакте";
-  vkLoginButton.backgroundColor = [UIColor redColor];
+  SCOPE = @[VK_PER_FRIENDS];
+  [[VKSdk initializeWithAppId:@"6006342"] registerDelegate:self];
+  [[VKSdk instance] setUiDelegate:self];
+ // [[VKSdk instance] registerDelegate:self];
+  
+  
+  UIButton *vkLoginButton = [UIButton new];
+  vkLoginButton.titleLabel.text = @"Вход vk";
+  vkLoginButton.tintColor = [UIColor blackColor];
+  vkLoginButton.imageView.image = [UIImage imageNamed:@"vk.png"];
+  vkLoginButton.backgroundColor = [UIColor greenColor];
   [self.view addSubview:vkLoginButton];
   [vkLoginButton mas_makeConstraints:^(MASConstraintMaker *make) {
     make.centerX.equalTo(self.view);
@@ -49,24 +58,27 @@
     make.width.equalTo(fbLoginButton.mas_width);
   
   }];
+  
+  //special functions
+  [VKSdk wakeUpSession:SCOPE completeBlock:^(VKAuthorizationState state, NSError *error) {
+    if (state == VKAuthorizationAuthorized) {
+      [self startWorking];
+    } else if (error) {
+      [[[UIAlertView alloc] initWithTitle:nil message:[error description] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    }
+  }];
 
-  
-  
+
+  [vkLoginButton addTarget:self action:@selector(vkButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+
 }
 
--(void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {
-  
-  
+- (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {
   
 }
--(void)loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error {
+- (void)loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error {
   
-  // как обойтись без выхода-входа (лишних шагов при входе)
-  
-  // нужно ли его здесь задавать
   ListViewController *listVC = [ListViewController new];
-  
-  
   
   FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
                                 initWithGraphPath:@"me/taggable_friends?fields=id,name,picture.type(large)"
@@ -79,7 +91,7 @@
     if(error) NSLog(@"Error: %@",error.description);
     else {
       NSLog(@"Succesfull downloading friends list");
-      NSArray *list = [result valueForKey:@"data"];
+      NSMutableArray *list = [result valueForKey:@"data"];
       [self fetchFriendsInfo:list];
       
       [listVC addContacts:self.list];
@@ -88,7 +100,7 @@
   }];
 }
 
--(void)fetchFriendsInfo:(NSArray*)list {
+- (void)fetchFriendsInfo:(NSArray*)list {
   
   NSMutableArray <Contact *> *mutableList = [NSMutableArray new];
   
@@ -96,25 +108,43 @@
     
     NSString *imageURL = [[[item valueForKey:@"picture"] valueForKey:@"data"] valueForKey:@"url"];
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]];
-    // NSString *jsonString = [[NSString alloc] initWithData:item encoding:NSUTF8StringEncoding];
-    
+  
     NSArray *fullname = [[item valueForKey:@"name"] componentsSeparatedByString:@" "];
     Contact *friend = [[Contact alloc]initWithImage:imageData andFirst:fullname[0] andLastName:fullname[1]];
     [mutableList addObject:friend];
   }
-  
   self.list = mutableList;
 }
 
--(void)vkSdkUserAuthorizationFailed{
+- (void)vkButtonPressed{
+  [VKSdk authorize:SCOPE];
+}
+
+- (void)vkSdkShouldPresentViewController:(UIViewController *)controller {
+  [self.navigationController.topViewController presentViewController:controller animated:YES completion:nil];
+}
+
+- (void)vkSdkUserAuthorizationFailed{
   
 }
--(void)vkSdkAccessAuthorizationFinishedWithResult:(VKAuthorizationResult *)result {
+- (void)vkSdkAccessAuthorizationFinishedWithResult:(VKAuthorizationResult *)result {
+  if (result.token) {
+    [self startWorking];
+  } else if (result.error) {
+    [[[UIAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"Access denied\n%@", result.error] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    
+  }
+}
+
+- (void)startWorking{
+  VKRequest *friendsList = [[VKApi friends]get];
   
-  NSArray *SCOPE = @[@"friends", @"email"];
   
-  //VKRequest *request = [VKRequest wi]
   
+}
+
+
+- (void)vkSdkWillDismissViewController:(UIViewController *)controller{
   
 }
 

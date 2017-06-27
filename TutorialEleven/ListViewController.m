@@ -43,7 +43,7 @@ NSString *const contactCellId = @"cellID";
   //    self.list = [self.sharedManager  getContacts];
   
   
-  FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
+  //FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
   // UIBarButtonItem *facebookItem = [[UIBarButtonItem alloc]initWithCustomView:loginButton];
   
   UIBarButtonItem *testitem = [[UIBarButtonItem alloc]initWithTitle:@"TEST" style:UIBarButtonItemStyleDone target:nil action:nil];
