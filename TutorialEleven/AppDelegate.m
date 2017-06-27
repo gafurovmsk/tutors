@@ -48,7 +48,7 @@
   
   [VKSdk processOpenURL:url fromApplication:UIApplicationOpenURLOptionsSourceApplicationKey];
   
-  return YES;
+  return handled;
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
