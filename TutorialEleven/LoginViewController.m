@@ -19,7 +19,7 @@ static NSArray *SCOPE = nil;
 @interface LoginViewController () <FBSDKLoginButtonDelegate,VKSdkDelegate,VKSdkUIDelegate>
 
 @property (nonatomic,strong)NSArray<Contact*> *list;
-
+@property (nonatomic,strong)NSString *responseVK;
 @end
 
 @implementation LoginViewController
@@ -30,36 +30,39 @@ static NSArray *SCOPE = nil;
   self.view.backgroundColor = [UIColor whiteColor];
   
   //FB button
+  UIView *containerForFBSDKLoginButton = [UIView new];
+  
   FBSDKLoginButton *fbLoginButton = [[FBSDKLoginButton alloc] init];
   fbLoginButton.readPermissions = @[@"public_profile", @"email", @"user_friends",@"read_custom_friendlists"];
   fbLoginButton.delegate = self;
-  [self.view addSubview:fbLoginButton];
+  [fbLoginButton setTitle:@"" forState:UIControlStateNormal];
+  
+  [containerForFBSDKLoginButton addSubview:fbLoginButton];
   [fbLoginButton mas_makeConstraints:^(MASConstraintMaker *make) {
-    make.center.equalTo(self.view);
+    make.center.equalTo(containerForFBSDKLoginButton);
+    make.centerX.equalTo(containerForFBSDKLoginButton).with.offset(-10);
+    make.width.equalTo(fbLoginButton.mas_height);
   }];
   
+  UIBarButtonItem *fbItem = [[UIBarButtonItem alloc]initWithCustomView:containerForFBSDKLoginButton];
+  
+  
   //VK button
+  UIView *containerForVKLoginButton = [UIView new];
+  UIButton *vkLoginButton = [UIButton new];
+  vkLoginButton.titleLabel.text = @"";
+  [vkLoginButton setBackgroundImage:[UIImage imageNamed:@"vk.png"] forState:UIControlStateNormal];
+  [containerForVKLoginButton addSubview:vkLoginButton];
+  [vkLoginButton mas_makeConstraints:^(MASConstraintMaker *make) {
+    make.center.equalTo(containerForVKLoginButton);
+    make.centerX.equalTo(containerForVKLoginButton).with.offset(-40);
+    make.height.width.equalTo(@28);
+    }];
+  UIBarButtonItem *vkItem = [[UIBarButtonItem alloc]initWithCustomView:containerForVKLoginButton];
+  
   SCOPE = @[VK_PER_FRIENDS];
   [[VKSdk initializeWithAppId:@"6006342"] registerDelegate:self];
   [[VKSdk instance] setUiDelegate:self];
- // [[VKSdk instance] registerDelegate:self];
-  
-  
-  UIButton *vkLoginButton = [UIButton new];
-  vkLoginButton.titleLabel.text = @"Вход vk";
-  vkLoginButton.tintColor = [UIColor blackColor];
-  vkLoginButton.imageView.image = [UIImage imageNamed:@"vk.png"];
-  vkLoginButton.backgroundColor = [UIColor greenColor];
-  [self.view addSubview:vkLoginButton];
-  [vkLoginButton mas_makeConstraints:^(MASConstraintMaker *make) {
-    make.centerX.equalTo(self.view);
-    make.top.equalTo(fbLoginButton.mas_bottom).with.offset(8);
-    make.height.equalTo(fbLoginButton.mas_height);
-    make.width.equalTo(fbLoginButton.mas_width);
-  
-  }];
-  
-  //special functions
   [VKSdk wakeUpSession:SCOPE completeBlock:^(VKAuthorizationState state, NSError *error) {
     if (state == VKAuthorizationAuthorized) {
       [self startWorking];
@@ -67,10 +70,10 @@ static NSArray *SCOPE = nil;
       [[[UIAlertView alloc] initWithTitle:nil message:[error description] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
     }
   }];
+  self.navigationItem.rightBarButtonItems =@[fbItem, vkItem];
 
-
-  [vkLoginButton addTarget:self action:@selector(vkButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-
+  [vkLoginButton addTarget:containerForVKLoginButton action:@selector(vkButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+  
 }
 
 - (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {
@@ -93,7 +96,6 @@ static NSArray *SCOPE = nil;
       NSLog(@"Succesfull downloading friends list");
       NSMutableArray *list = [result valueForKey:@"data"];
       [self fetchFriendsInfo:list];
-      
       [listVC addContacts:self.list];
       [self.navigationController pushViewController:listVC animated:YES];
     }
@@ -137,15 +139,18 @@ static NSArray *SCOPE = nil;
 }
 
 - (void)startWorking{
-  VKRequest *friendsList = [[VKApi friends]get];
+  VKRequest *friendsListRequest = [[VKApi friends] get:@{@"fields":@"first_name,last_name,city,contacts"}];
   
-  
-  
+  __weak __typeof(self) welf = self;
+  [friendsListRequest executeWithResultBlock:^(VKResponse *response) {
+    welf.responseVK = [NSString stringWithFormat:@"Result: %@", response];
+    NSLog(@"%@", response.request.requestTiming);
+  }                                errorBlock:^(NSError *error) {
+    welf.responseVK = [NSString stringWithFormat:@"Error: %@", error];
+  }];
 }
-
 
 - (void)vkSdkWillDismissViewController:(UIViewController *)controller{
   
 }
-
 @end
