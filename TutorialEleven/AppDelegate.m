@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 //#import "ListViewController.h"
-#import "LoginViewController.h"
+#import "TELoginViewController.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <VKSdkFramework/VKSdkFramework.h>
 @import UIKit;
@@ -27,7 +27,7 @@
   [VKSdk initializeWithAppId:@"6006342"];
   
   UIWindow *window = [UIWindow new];
-  UIViewController *startVC = [LoginViewController new];
+  UIViewController *startVC = [TELoginViewController new];
   UINavigationController *navigationController = [[UINavigationController alloc]
                                                    initWithRootViewController:startVC];
   window.rootViewController = navigationController;

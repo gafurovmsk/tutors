@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+@class Contact;
 
-@interface LoginViewController : UIViewController 
-
+@interface TELoginViewController : UIViewController 
+@property (strong,nonatomic) NSMutableArray<Contact*> *list;
 @end
